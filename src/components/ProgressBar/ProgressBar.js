@@ -14,7 +14,10 @@ const HEIGHT_MAP = {
 const ProgressBar = ({ value, size }) => {
   return (
     <Container size={size} role="progressbar" aria-valuenow={value}>
-      <Bar value={value}></Bar>
+      <VisuallyHidden>{value}%</VisuallyHidden>
+      <BarWrapper>
+        <Bar value={value}></Bar>
+      </BarWrapper>
     </Container>
   );
 };
@@ -23,17 +26,24 @@ const Container = styled.div`
   background-color: ${COLORS.transparentGray15};
   box-shadow: inset 0px 2px 4px ${COLORS.transparentGray35};
   width: 370px;
-  height: ${(props) => HEIGHT_MAP[props.size] + 'px'};
-  padding: ${(props) => props.size === 'large' && '4px'};
-  border-radius: ${(props) => props.size === 'large' ? '8px' : '4px'};
+  height: ${(props) => HEIGHT_MAP[props.size] + "px"};
+  padding: ${(props) => props.size === "large" && "4px"};
+  border-radius: ${(props) => (props.size === "large" ? "8px" : "4px")};
+  overflow: hidden;
+`;
+
+const BarWrapper = styled.div`
+  overflow: hidden;
+  border-radius: 4px;
+  width: 100%;
+  height: 100%;
 `;
 
 const Bar = styled.div`
   background-color: ${COLORS.primary};
   height: 100%;
-  width: ${(props) => props.value + '%'};
+  width: ${(props) => props.value + "%"};
   border-radius: 4px 0px 0px 4px;
 `;
-
 
 export default ProgressBar;
