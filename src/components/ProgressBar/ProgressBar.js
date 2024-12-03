@@ -13,7 +13,7 @@ const HEIGHT_MAP = {
 
 const ProgressBar = ({ value, size }) => {
   return (
-    <Container size={size}>
+    <Container size={size} role="progressbar" aria-valuenow={value}>
       <Bar value={value}></Bar>
     </Container>
   );
