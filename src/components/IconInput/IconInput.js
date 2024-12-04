@@ -9,9 +9,8 @@ import VisuallyHidden from "../VisuallyHidden";
 const IconInput = ({ label, icon, width = 250, size, placeholder }) => {
   const iconSize = size === "small" ? 16 : 24;
   const textSize = size === "small" ? 14 : 18;
-  const inputPaddingVer = size === "small" ? 4 : 8;
-  const inputPaddingHor = size === "small" ? 24 : 36;
-  const iconPaddingVer = size === "small" ? 4 : 6;
+  const inputHeight = size === "small" ? 24 : 36;
+  const inputPaddingLeft = size === "small" ? 24 : 36;
   const inputBorderWidth = size === "small" ? 1 : 2;
   return (
     <Wrapper
@@ -19,9 +18,8 @@ const IconInput = ({ label, icon, width = 250, size, placeholder }) => {
         "--width": width + "px",
         "--icon": iconSize + "px",
         "--text": textSize + "px",
-        "--paddingTop": inputPaddingVer + "px",
-        "--paddingLeft": inputPaddingHor + "px",
-        "--iconPadding": iconPaddingVer + "px",
+        "--inputHeight": inputHeight + "px",
+          "--paddingLeft": inputPaddingLeft + "px",
         "--borderWidth": inputBorderWidth + "px",
       }}
     >
@@ -51,9 +49,9 @@ const Wrapper = styled.div`
 
 const IconWrapper = styled.div`
   position: absolute;
-  top: var(--iconPadding);
+  top: 0;
   left: 0;
-  bottom: var(--iconPadding);
+  bottom: 0;
   margin: auto 0;
   width: var(--icon);
   height: var(--icon);
@@ -69,6 +67,7 @@ const InputWrapper = styled.input`
   font-size: var(--text);
   font-weight: 700;
   width: 100%;
+  height: var(--inputHeight);
   color: inherit;
   outline-offset: 2px;
 
