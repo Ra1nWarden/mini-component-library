@@ -25,6 +25,7 @@ const IconInput = ({ label, icon, width = 250, size, placeholder }) => {
         "--borderWidth": inputBorderWidth + "px",
       }}
     >
+      <VisuallyHidden>{label}</VisuallyHidden>
       <IconWrapper>
         <Icon id={icon} size={iconSize}></Icon>
       </IconWrapper>
