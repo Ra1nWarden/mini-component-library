@@ -54,14 +54,14 @@ const IconWrapper = styled.div`
   top: var(--iconPadding);
   left: 0;
   bottom: var(--iconPadding);
+  margin: auto 0;
   width: var(--icon);
-  height: 100%;
+  height: var(--icon);
+  pointer-events: none;
 `;
 
 const InputWrapper = styled.input`
   padding-left: var(--paddingLeft);
-  padding-top: var(--paddingTop);
-  padding-bottom: var(--paddingTop);
   border-top: none;
   border-left: none;
   border-right: none;
@@ -69,7 +69,8 @@ const InputWrapper = styled.input`
   font-size: var(--text);
   font-weight: 700;
   width: 100%;
-  color: ${COLORS.gray700};
+  color: inherit;
+  outline-offset: 2px;
 
   &::placeholder {
     font-weight: 400;
